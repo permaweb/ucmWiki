@@ -3,35 +3,22 @@
 -->
 <div *ngIf="loading && !redirect" class="mt-home fadeIn">
   <div class="text-center main-logo">
-    <ngx-skeleton-loader 
-      count="1" 
-      appearance="circle"
-      [animation]="getSkeletonLoaderAnimationType()"
-      [theme]="getSkeletonLoaderThemeNgStyle()"
-      ></ngx-skeleton-loader>
+    <ngx-skeleton-loader count="1" appearance="circle" [animation]="getSkeletonLoaderAnimationType()"
+      [theme]="getSkeletonLoaderThemeNgStyle()"></ngx-skeleton-loader>
   </div>
   <div class="text-center" style="margin-bottom: -8px">
-    <ngx-skeleton-loader 
-      count="1" 
-      [animation]="getSkeletonLoaderAnimationType()"
-      [theme]="getSkeletonLoaderThemeNgStyle2()"
-      ></ngx-skeleton-loader>
+    <ngx-skeleton-loader count="1" [animation]="getSkeletonLoaderAnimationType()"
+      [theme]="getSkeletonLoaderThemeNgStyle2()"></ngx-skeleton-loader>
   </div>
   <div class="text-center">
-    <ngx-skeleton-loader 
-      count="1" 
-      [animation]="getSkeletonLoaderAnimationType()"
-      [theme]="getSkeletonLoaderThemeNgStyle3()"
-      ></ngx-skeleton-loader>
+    <ngx-skeleton-loader count="1" [animation]="getSkeletonLoaderAnimationType()"
+      [theme]="getSkeletonLoaderThemeNgStyle3()"></ngx-skeleton-loader>
   </div>
-  
+
 </div>
 <div *ngIf="!loading && !redirect" class="mt-home fadeIn">
   <div class="text-center main-logo">
-    <img 
-      *ngIf="appLogoLight" 
-      width="120px" 
-      [src]="appLogoLight">
+    <img *ngIf="appLogoLight" width="120px" [src]="appLogoLight">
   </div>
   <h1 class="main-title text-center">
     {{ appName }}
@@ -41,10 +28,9 @@
   </p>
 </div>
 
-
 <div *ngIf="!redirect" class="container home-container fadeIn">
-	<div class="row">
-		<div class="col-12">
-		</div>
-	</div>	
+  <div class="row">
+    <div class="col-12">
+    </div>
+  </div>
 </div>

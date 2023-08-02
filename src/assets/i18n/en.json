@@ -35,8 +35,8 @@
 		"MENU_MODERATOR_CATEGORIES": "Manage categories"
 	},
 	"MAIN_PAGE": {
-		"TITLE_L1": "Welcome to the permaweb!",
-		"SUBTITLE_L1": "arwiki is the decentralized wiki for arweave that anyone can edit.",
+		"TITLE_L1": "Welcome to the UCM Wiki!",
+		"SUBTITLE_L1": "The Universal Content Marketplace (UCM) is a trustless token exchange for assets in the smartweave ecosystem. UCM offers a functional onchain order book as a public good that anyone can build an interface for.",
 		"TITLE_L2": "Getting started",
 		"TITLE_L3": "Latest articles",
 		"LABEL_NO_RESULTS": "No results."
@@ -63,16 +63,14 @@
 		"LABEL_PAGE_VALUE": "Page value:",
 		"LABEL_PAGE_TX": "Page tx:",
 		"LABEL_PAGE_NOT_FOUND": "Page not found! 😢",
-		"LABEL_CREATE_NEW_PAGE": "Create new ArWiki page",
+		"LABEL_CREATE_NEW_PAGE": "Create new Wiki page",
 		"LABEL_CONTENT_OVERVIEW": "Content overview",
 		"LABEL_TAGS": "Tags",
 		"LABEL_TRANSLATIONS": "Other languages",
 		"LABEL_READING_TIME": "Reading Time:",
 		"LABEL_READING_TIME_RES_COMPOSED": "{{ minutes }}' {{ seconds }}\""
 	},
-	"NOT_FOUND": {
-
-	},
+	"NOT_FOUND": {},
 	"CREATE_PAGE": {
 		"TITLE": "Create page",
 		"FRM_TITLE": "Title",
@@ -87,10 +85,10 @@
 		"FRM_BTN_GOBACK": "Go back"
 	},
 	"SEARCH_ENGINE": {
-		"INPUT_SEARCH_LABEL": "Search the arwiki",
+		"INPUT_SEARCH_LABEL": "Search the ucm wiki",
 		"INPUT_SEARCH_PLACEHOLDER": "",
 		"LBL_DEFAULT_LANG": "Default language",
-		"LBL_SELECT_LANG":" Select language",
+		"LBL_SELECT_LANG": " Select language",
 		"BTN_TXT_GO": "Go!"
 	},
 	"FOOTER": {
@@ -168,11 +166,11 @@
 		}
 	},
 	"LOADING": {
-		"QUOTES_TITLE" : "Did you know?",
+		"QUOTES_TITLE": "Did you know?",
 		"QUOTES": {
-			"0": "Arweave is a protocol that allows you to store data permanently, sustainably, with a single upfront fee.",
-			"1": "On top of the core Arweave protocol lives the permaweb: A global, permanent web of pages and applications that live forever.",
-			"2": "Arweave is a completely community-owned and -operated open source network."
+			"0": "UCM is a groundbreaking protocol that enables the trustless exchange of any atomic asset on the permaweb, built on @ArweaveEco.",
+			"1": "UCM is built by leveraging FCP 2 and Atomic Assets",
+			"2": "UCM is a complete protocol"
 		},
 		"LOADING_LABEL": "Loading"
 	},

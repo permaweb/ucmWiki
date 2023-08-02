@@ -1,50 +1,42 @@
 <div class="mt-main">
 </div>
-<mat-progress-bar color="accent" class="sticky-progress-bar" mode="indeterminate" *ngIf="loadingSubmenu"></mat-progress-bar>
+<mat-progress-bar color="accent" class="sticky-progress-bar" mode="indeterminate"
+	*ngIf="loadingSubmenu"></mat-progress-bar>
 <div class="mt-main-pgbsep" *ngIf="!loadingSubmenu">
 </div>
 <div class="container main-page-container fadeIn">
 	<div class="row">
 		<div class="col-12 col-md-7 text-center">
 			<div *ngIf="loadingMainPageTX" class="fadeIn loadingMsg">
-				<img
-          class="main-logo animate__animated animate__flipInY"
-          [src]="mainLogo"
-          [ngClass]="{ darkThemeLogo: isDarkTheme() }">
+				<img class="main-logo animate__animated animate__flipInY" [src]="mainLogo"
+					[ngClass]="{ darkThemeLogo: isDarkTheme() }">
 				<h3 class="text-left animate__animated animate__pulse animate__infinite">
 					{{ 'LOADING.LOADING_LABEL' | translate }}
 				</h3>
 			</div>
 			<!-- Display Main Page TX content -->
 			<div *ngIf="!loadingMainPageTX && mainPage" class="fadeIn">
-				<img
-          class="main-logo"
-          [src]="mainLogo"
-          [ngClass]="{ darkThemeLogo: isDarkTheme() }">
+				<img class="main-logo" [src]="mainLogo" [ngClass]="{ darkThemeLogo: isDarkTheme() }">
 				<h1 class="text-left main-title fadeIn">
 					{{ mainPage.title }}
 				</h1>
-				<div 
-					*ngIf="mainPage.rawContent" 
-					class="text-justify secondary-mainPTX-content fadeIn"
+				<div *ngIf="mainPage.rawContent" class="text-justify secondary-mainPTX-content fadeIn"
 					[innerHTML]="markdownToHTML(mainPage.rawContent)"></div>
 
 			</div>
 			<!-- Default if not Main Page is found -->
 			<div *ngIf="!loadingMainPageTX && !mainPage" class="fadeIn">
-				<img
-          class="main-logo"
-          [src]="mainLogo"
-          [ngClass]="{ darkThemeLogo: isDarkTheme() }">
-				
-				<h1 *ngIf="!loadingMainPageTX" class="text-left main-title fadeIn">
+				<!-- <img class="main-logo" [src]="mainLogo" [ngClass]="{ darkThemeLogo: isDarkTheme() }"> -->
+
+				<!-- <h1 *ngIf="!loadingMainPageTX" class="text-left main-title fadeIn">
 					{{ 'MAIN_PAGE.TITLE_L1' | translate }}
-				</h1>
-				<p 
-					*ngIf="!loadingMainPageTX " 
-					class="text-left secondary-title fadeIn">
+				</h1> -->
+				<img width="100%" src="/0SUGqk72mwX920Mlv4ijS1K5kR2jg4X3l386kJmeow4" alt="ucm banner">
+
+				<p *ngIf="!loadingMainPageTX " class="text-left secondary-title fadeIn">
 					{{ 'MAIN_PAGE.SUBTITLE_L1' | translate }}
 				</p>
+
 			</div>
 		</div>
 		<div class="col-1 sep-column">
@@ -55,22 +47,15 @@
 			</h2>
 			<div class="row" *ngIf="loadingSubmenu">
 				<div class="col-12 fadeIn portalBtnContainer" *ngFor="let i of [1, 2, 3, 4]">
-					<ngx-skeleton-loader
-										 count="1"
-										 [animation]="getSkeletonLoaderAnimationType()"
-										 [theme]="getSkeletonLoaderThemeNgStyle()"></ngx-skeleton-loader>
+					<ngx-skeleton-loader count="1" [animation]="getSkeletonLoaderAnimationType()"
+						[theme]="getSkeletonLoaderThemeNgStyle()"></ngx-skeleton-loader>
 				</div>
 			</div>
 			<mat-nav-list *ngIf="!loadingSubmenu">
-				<mat-accordion 
-			    id="arwiki-home-page-accordion"
-			    displayMode="flat">
-			    <app-sub-menu-mainpage
-			      [categories]="categories"
-			      [routerLang]="routeLang"
-			      [menu]="menu"
-			      [level]="0"></app-sub-menu-mainpage>
-			  </mat-accordion>
+				<mat-accordion id="arwiki-home-page-accordion" displayMode="flat">
+					<app-sub-menu-mainpage [categories]="categories" [routerLang]="routeLang" [menu]="menu"
+						[level]="0"></app-sub-menu-mainpage>
+				</mat-accordion>
 			</mat-nav-list>
 
 		</div>
@@ -87,19 +72,11 @@
 	</div>
 	<div class="row" *ngIf="!loadingLatestArticles">
 		<div class="col-12 col-md-6" *ngFor="let article of latestArticles">
-			<app-article-card 
-				[article]="article" 
-				[routeLang]="routeLang" 
-				[defaultTheme]="defaultTheme"
+			<app-article-card [article]="article" [routeLang]="routeLang" [defaultTheme]="defaultTheme"
 				[baseURL]="baseURL"></app-article-card>
 		</div>
-		<div
-			class="col-12 text-center"
-			*ngIf="!hideBtnMoreArticles">
-			<button
-				mat-flat-button 
-				class="btn-more-articles"
-				[disabled]="loadingNextLatestArticles"
+		<div class="col-12 text-center" *ngIf="!hideBtnMoreArticles">
+			<button mat-flat-button class="btn-more-articles" [disabled]="loadingNextLatestArticles"
 				(click)="nextLatestArticles(incrementNumLatestArticles)">
 				{{ 'GENERAL.BUTTONS.MORE_ARTICLES' | translate }}
 			</button>
@@ -109,34 +86,29 @@
 		<div class="col-12 col-md-6" *ngFor="let article of [1, 2, 3, 4]">
 			<mat-card class="card-latest-article-skeleton fadeIn">
 				<p>
-					<ngx-skeleton-loader
-											count="1"
-											[animation]="getSkeletonLoaderAnimationType()"
-											[theme]="getSkeletonLoaderThemeNgStyleTitleArticle()"></ngx-skeleton-loader>
+					<ngx-skeleton-loader count="1" [animation]="getSkeletonLoaderAnimationType()"
+						[theme]="getSkeletonLoaderThemeNgStyleTitleArticle()"></ngx-skeleton-loader>
 				</p>
 				<p>
-					<ngx-skeleton-loader
-											count="3"
-											[animation]="getSkeletonLoaderAnimationType()"
-											[theme]="getSkeletonLoaderThemeNgStylePLine()"></ngx-skeleton-loader>
+					<ngx-skeleton-loader count="3" [animation]="getSkeletonLoaderAnimationType()"
+						[theme]="getSkeletonLoaderThemeNgStylePLine()"></ngx-skeleton-loader>
 				</p>
 			</mat-card>
 		</div>
 	</div>
 </div>
 
-<div class="fadeIn container-partners" [class.dark]="this.defaultTheme === 'arwiki-dark'" *ngIf="partners && partners.length">
+<div class="fadeIn container-partners" [class.dark]="this.defaultTheme === 'arwiki-dark'"
+	*ngIf="partners && partners.length">
 	<h2 class="text-center">{{ 'FOOTER.LBL_PARTNERS' | translate }}</h2>
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-4 col-sm-4 col-md-2 text-center card-partner" *ngFor="let p of sortedPartners()">
 				<a *ngIf="p.href" [href]="p.href" target="_blank">
-					<img  [class.dark]="this.defaultTheme === 'arwiki-dark' && !p.noInvert" [src]="p.img" [alt]="p.alt">
+					<img [class.dark]="this.defaultTheme === 'arwiki-dark' && !p.noInvert" [src]="p.img" [alt]="p.alt">
 				</a>
-				<img
-					 *ngIf="!p.href"
-					 [class.dark]="this.defaultTheme === 'arwiki-dark' && !p.noInvert" 
-					 [src]="p.img" [alt]="p.alt">
+				<img *ngIf="!p.href" [class.dark]="this.defaultTheme === 'arwiki-dark' && !p.noInvert" [src]="p.img"
+					[alt]="p.alt">
 			</div>
 		</div>
 	</div>
