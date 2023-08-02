@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject, BehaviorSubject } from 'rxjs';
-import {TranslateService} from '@ngx-translate/core';
-import {ArwikiLang} from '../core/interfaces/arwiki-lang';
-import {ArweaveGateway} from '../core/interfaces/arweave-gateway';
+import { TranslateService } from '@ngx-translate/core';
+import { ArwikiLang } from '../core/interfaces/arwiki-lang';
+import { ArweaveGateway } from '../core/interfaces/arweave-gateway';
 import { UtilsService } from './utils.service';
 
 declare const window: any;
@@ -12,22 +12,22 @@ declare const document: any;
   providedIn: 'root'
 })
 export class UserSettingsService {
-	private _defaultTheme: string = '';
-	private _defaultLang: ArwikiLang = {
+  private _defaultTheme: string = '';
+  private _defaultLang: ArwikiLang = {
     code: "en",
     native_name: "English",
     writing_system: "LTR",
     iso_name: "English",
     active: true
   };
-  
+
   private _defaultNetwork: ArweaveGateway = {
     host: "arweave.net",
     port: 443,
     protocol: 'https',
     useArweaveGW: false,
     // Current stable contract
-    contractAddress: 'jrfpo_Ihv2cHiUi0rsq0ZbI76GdS9kciRPmjvyRIFqM'
+    contractAddress: 'QC9XhrelCwleLRPFIeEXnKIL8HG7CFN06yhJkQ6rECg'
     // Testing contract
     // contractAddress: 'NUQkXe-8Akd5jw13hzWzfdepGg07Fg_HHimXCqy8BM4'
   };
@@ -173,7 +173,7 @@ export class UserSettingsService {
   // Observable string stream
   public protocolVersionStream = this._protocolVersionSource.asObservable();
 
-  public updateProtocolVersionObservable(version: string|number) {
+  public updateProtocolVersionObservable(version: string | number) {
     if (typeof version === 'number') {
       version = `${version}`;
     }
@@ -192,40 +192,40 @@ export class UserSettingsService {
   public socialMediaLinksStream = this._socialMediaLinksSource.asObservable();
 
   public updatesocialMediaLinks(socialMedia: string, handleOrLink: string) {
-    switch(socialMedia) {
+    switch (socialMedia) {
       case 'socialMediaGitHub':
         this._socialMediaLinks[socialMedia] = `https://github.com/${handleOrLink}`;
-      break;
+        break;
       case 'socialMediaDiscord':
         this._socialMediaLinks[socialMedia] = handleOrLink;
 
-      break;
+        break;
       case 'socialMediaTwitter':
         this._socialMediaLinks[socialMedia] = `https://twitter.com/${handleOrLink}`;
-        
-      break;
+
+        break;
       case 'socialMediaYoutube':
         this._socialMediaLinks[socialMedia] = `https://youtube.com/${handleOrLink}`;
-        
-      break;
+
+        break;
       case 'socialMediaInstagram':
         this._socialMediaLinks[socialMedia] = `https://instagram.com/${handleOrLink}`;
-        
-      break;
+
+        break;
       case 'socialMediaFacebook':
         this._socialMediaLinks[socialMedia] = `https://facebook.com/${handleOrLink}`;
-        
-      break;
+
+        break;
       case 'socialMediaPublicSquare':
         this._socialMediaLinks[socialMedia] = `https://publicsquare.social/#/${handleOrLink}`;
-        
-      break;
+
+        break;
       case 'socialMediaNarrative':
         this._socialMediaLinks[socialMedia] = `https://narrative.social/#/${handleOrLink}`;
-        
-      break;
+
+        break;
       default:
-        // Do nothing
+      // Do nothing
     }
   }
 
@@ -242,8 +242,8 @@ export class UserSettingsService {
   constructor(
     private _translate: TranslateService,
     private _utils: UtilsService
-   ) {
-  	this.initSettings();
+  ) {
+    this.initSettings();
   }
 
   initSettings() {
@@ -270,11 +270,11 @@ export class UserSettingsService {
   }
 
   getDefaultTheme(): string {
-  	return this._defaultTheme;
+    return this._defaultTheme;
   }
 
   getDefaultLang(): ArwikiLang {
-  	return this._defaultLang;
+    return this._defaultLang;
   }
 
   getDefaultNetwork(): ArweaveGateway {
@@ -290,15 +290,15 @@ export class UserSettingsService {
   }
 
   setDefaultTheme(_theme: string) {
-  	if (_theme) {
-    	this._defaultTheme = _theme;
-    	window.localStorage.setItem('defaultTheme', this._defaultTheme);
+    if (_theme) {
+      this._defaultTheme = _theme;
+      window.localStorage.setItem('defaultTheme', this._defaultTheme);
       this.updateDefaultThemeObservable(this._defaultTheme);
-  	}
+    }
   }
 
   setDefaultLang(_lang: ArwikiLang) {
-  	if (_lang) {
+    if (_lang) {
       let def = '';
       try {
         def = JSON.stringify(_lang);
@@ -307,17 +307,17 @@ export class UserSettingsService {
         // this._defaultLang = {};
         throw Error('setDefaultLang: Error ' + err);
       }
-     
+
       document.documentElement.lang = this._defaultLang.code;
 
       if (this._defaultLang.writing_system) {
         document.documentElement.dir = this._defaultLang.writing_system;
       }
 
-    	window.localStorage.setItem('defaultLang', def);
+      window.localStorage.setItem('defaultLang', def);
       this._translate.use(this._defaultLang.code);
       this.updateSettingsLangObservable(this._defaultLang);
-  	}
+    }
   }
 
   setCookiesAccepted(_cookiesAccepted: boolean) {
@@ -332,9 +332,9 @@ export class UserSettingsService {
   }
 
   resetUserSettings() {
-  	this._defaultTheme = 'arwiki-light';
-  	window.localStorage.removeItem('defaultTheme');
-  	window.localStorage.removeItem('defaultLang');
+    this._defaultTheme = 'arwiki-light';
+    window.localStorage.removeItem('defaultTheme');
+    window.localStorage.removeItem('defaultLang');
     window.localStorage.removeItem('defaultNetwork');
     window.localStorage.removeItem('cookiesAccepted');
   }
@@ -352,26 +352,26 @@ export class UserSettingsService {
       case 'arwiki-light':
         _ts.className = theme;
         this.setDefaultTheme(theme);
-      break;
+        break;
       case 'arwiki-dark':
         _ts.className = theme;
         this.setDefaultTheme(theme);
-      break;
+        break;
       case 'arwiki-peach':
         _ts.className = theme;
         this.setDefaultTheme(theme);
-      break;
+        break;
       case 'arwiki-orange':
         _ts.className = theme;
         this.setDefaultTheme(theme);
-      break;
+        break;
       case 'arwiki-yellow':
         _ts.className = theme;
         this.setDefaultTheme(theme);
-      break;
+        break;
       default:
-      	console.error('Theme not found!');
-      break;
+        console.error('Theme not found!');
+        break;
     }
 
   }
@@ -398,7 +398,7 @@ export class UserSettingsService {
         // this._defaultLang = {};
         throw Error('setDefaultNetwork: Error ' + err);
       }
-     
+
       window.localStorage.setItem('defaultNetwork', def);
       this.updateSettingsNetworkObservable(this._defaultNetwork);
     }
